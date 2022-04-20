@@ -59,11 +59,20 @@ class Book:
     def output(self):
         print(self.cnt, self.title)
 
+    @classmethod
+    def output2(cls):
+        cls.cnt += 1
+        print('(2) 총', cls.cnt, '권')
+
 b1 = Book('행복')
 b2 = Book('먹고 살자')
 
 b1.output()
 b2.output()
+
+b1.output2()
+b2.output2()
+Book.output2()
 
 
 '''
@@ -72,5 +81,26 @@ b2.output()
         - 파이션은 다중상속이 가능
         - 부모 클래스가 2개 이상인 경우 먼저 기술한 부모클래스에서 먼저 우선 해당 멤버를 찾음
 '''
+class Animal:
+    def move(self):
+        print('동물은 움직인다')
+
+class Wolf(Animal):         #Animal (부모클래스) - 상속
+    def move(self):
+        print('늑대는 4발로 달린다')
+
+class Human(Animal):
+    def move(self):     # move함수 오버라이딩
+        print('인간은 2발로 걷는다')
+
+
+class WolfHuman(Human, Wolf):       # 첫번째 부모 클래스가 호출된다.
+    pass
+
+wh = WolfHuman()
+wh.move()
+
+w = Wolf()
+w.move()
 
 

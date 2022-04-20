@@ -28,10 +28,14 @@ try:
      10/0
 except Exception:
     print("예외")
-
+"""
 # (3)
 try:
      10/0
 except Exception  as e:
     print("예외:", e)
-"""
+else:
+    print('예외 없는 경우')
+finally:
+    print('예외여부상관없이 실행')
+

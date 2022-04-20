@@ -6,7 +6,15 @@
     존재하지 않는 파일명으로 예외가 발생해도 아무런 일을 하지 않는다
 """
 def count_words(filename):
-    pass  # pass 대신 완성
+    fname = './data/'+filename
+    try:
+        with open(fname, 'rt', encoding='utf-8') as f:
+            context = f.read()
+    except FileNotFoundError as e:
+        pass
+    else:
+        result = len(context.split())
+        print(filename, '>', result, '개')
 
 # 존재하지 않는 파일명도 있음
 filenames = ['sample.xml', 'xxxx.xxx', 'temp.json']

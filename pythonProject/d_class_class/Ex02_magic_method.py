@@ -1,3 +1,36 @@
+class Sample:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):      # str값 출력
+        return "이름: {}이고 나이는 {}살이다.".format(self.name, self.age)
+
+    def __add__(self, other):   # 객체 뒤에 +가 가능하게 해주는 매직 메소드
+        self.age += other
+
+    def __gt__(self, other):    # 객체 값과 숫자를 비교해주는 매직 메소드
+        if self.age > 20:
+            return '성인입니다.'
+        else:
+            return "미성년입니다."
+
+    def __bool__(self):         # 값을 True False로 나타내는 매직 매소드
+        return self.name =='홍길동'
+
+
+s = Sample("홍길자", 25)
+print(s)
+
+s + 10
+print(s)
+print( s > 20 )
+
+if s:                       #
+    print('홍길동 본인입니다.')
+else:
+    print('홍길동 본인이 아닙니다')
+
 """
     매직 메소드
 
